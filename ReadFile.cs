@@ -12,15 +12,14 @@ using System.IO;
 
 namespace PracticingSOLIDPrinciples
 {
-    public class ReadFile
+    public class ReadFile : IReadFile
     {
-        public void readTheFile()
+        public string readPath { get; set; }
+        public StreamReader reader { get; set; }
+        public string readLines { get; set; }
+        public void readTheFile(string readPath)
         {
-            string readPath = "C:\\Users\\ahudgens\\desktop\\testingfiles.txt";
-
-            StreamReader reader = new StreamReader(readPath);
-
-            string readLines;
+            reader = new StreamReader(readPath);
 
             var clearFile = new WriteFile();
             clearFile.deleteWriteFileIfExists();

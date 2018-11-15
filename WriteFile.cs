@@ -11,29 +11,37 @@ using System.Collections.Generic;
 
 namespace PracticingSOLIDPrinciples
 {
-    public class WriteFile
+    public class WriteFile : IWriteFile
     {
-        string writePath = "C:\\Users\\ahudgens\\desktop\\testingresults.txt";
+        public string writePath { get; set; }
+        public StreamWriter writer { get; set; }
+        public string writeOutFirstNumbers { get; set; }
+        public string writeOutSecondNumbers { get; set; }
+        public string writeOutOperators { get; set; }
+        public string writeOutTotals { get; set; }
 
-        public void writeTheFile(List<double> testingFirstNumber, List<string> listOfOperators, List<double> testingSecondNumber, List<double> totals)
+        public void writeTheFile(List<double> firstNumbers, List<string> operators, List<double> secondNumbers, List<double> totals)
         {
+            writePath = "C:\\Users\\ahudgens\\desktop\\testingresults.txt";
 
             StreamWriter writer = new StreamWriter(writePath, append: true);
 
-            string testingAgain = string.Join(" ", testingFirstNumber);
-            string blah = string.Join(" ", testingSecondNumber);
-            string operatotoerasf = string.Join(" ", listOfOperators);
-            string whatever = string.Join(" ", totals);
+            string writeOutFirstNumbers = string.Join(" ", firstNumbers);
+            string writeOutSecondNumbers = string.Join(" ", secondNumbers);
+            string writeOutOperators = string.Join(" ", operators);
+            string writeOutTotals = string.Join(" ", totals);
 
             using (writer)
             {
-                writer.WriteLine(testingAgain + " " + operatotoerasf + " " + blah + " " + whatever);
+                writer.WriteLine("The total of " + writeOutFirstNumbers + " " + writeOutOperators + " " + writeOutSecondNumbers + " is " + writeOutTotals);
 
             }
         }
 
         public void deleteWriteFileIfExists()
         {
+            writePath = "C:\\Users\\ahudgens\\desktop\\testingresults.txt";
+
             if (File.Exists(writePath) == true)
             {
                 File.Delete(writePath);

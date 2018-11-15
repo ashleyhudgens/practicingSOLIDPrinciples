@@ -17,23 +17,29 @@ using System.Linq;
 
 namespace PracticingSOLIDPrinciples
 {
-    public class DetermineTypeOfArithmeticToPerform
+    public class DetermineTypeOfArithmeticToPerform : IDetermineTypeOfArithmeticToPerform
     {
+        public string typeOfMath { get; set; }
+        public double firstNumber { get; set; }
+        public double secondNumber { get; set; }
+        public List<double> listOfTotals { get; set; }
+        public List<double> listOfFirstNumbers { get; set; }
+        public List<double> listOfSecondNumbers { get; set; }
+        public List<string> listOfOperators { get; set; }
+        public string[] listOfAcceptedTypesOfArithmetic { get; set; }
+
         public void determineWhatArithmeticToDo(string[] variablesFromReadFile)
         {
-            string typeOfMath;
             typeOfMath = variablesFromReadFile[0];
 
-            double firstNumber;
             firstNumber = Convert.ToDouble(variablesFromReadFile[1]);
 
-            double secondNumber;
             secondNumber = Convert.ToDouble(variablesFromReadFile[2]);
 
-            List<double> listOfTotals = new List<double>();
-            List<double> listOfFirstNumbers = new List<double>();
-            List<double> listOfSecondNumbers = new List<double>();
-            List<string> listOfOperators = new List<string>();
+            listOfTotals = new List<double>();
+            listOfFirstNumbers = new List<double>();
+            listOfSecondNumbers = new List<double>();
+            listOfOperators = new List<string>();
 
             var performArithmetic = new DoTheMath();
             var gettingOperator = new DetermineOperator();

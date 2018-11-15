@@ -7,11 +7,12 @@ using System;
 
 namespace PracticingSOLIDPrinciples
 {
-    public class DoTheMath
+    public class DoTheMath : IDoTheMath
     {
+        public double total { get; set; }
         public double performMath(double firstNumber, double secondNumber, string typeOfMath)
         {
-            double total = 0;
+            total = 0;
 
             if (typeOfMath == "add")
             {

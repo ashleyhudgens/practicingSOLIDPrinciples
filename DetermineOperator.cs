@@ -7,10 +7,10 @@ namespace PracticingSOLIDPrinciples
 {
     public class DetermineOperator
     {
+        public string operation { get; set; }
+
         public string getOperator(string arithmeticType)
         {
-            string operation;
-
             if(arithmeticType == "add")
             {
                 operation = "+";

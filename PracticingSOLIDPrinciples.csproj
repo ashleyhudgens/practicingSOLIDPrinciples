@@ -45,6 +45,11 @@
     <Compile Include="DetermineOperator.cs" />
     <Compile Include="DetermineTypeOfArithmeticToPerform.cs" />
     <Compile Include="DoTheMath.cs" />
+    <Compile Include="IDetermineOperators.cs" />
+    <Compile Include="IDetermineTypeOfArithmeticToPerform.cs" />
+    <Compile Include="IDoTheMath.cs" />
+    <Compile Include="IReadFile.cs" />
+    <Compile Include="IWriteFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadFile.cs" />
